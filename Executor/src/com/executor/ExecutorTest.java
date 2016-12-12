@@ -16,7 +16,7 @@ public class ExecutorTest {
 	 */
 
 	public static void main(String[] args) {
-
+		//Executors		
 		// Executor
 		// ExecutorService
 		// ThreadPoolExecutor
@@ -24,9 +24,13 @@ public class ExecutorTest {
 		// maximumPoolSize, keepAliveTime, unit, workQueue)
 		/**
 		 * 强烈建议程序员使用较为方便的 Executors 工厂方法
-		 * Executors.newCachedThreadPool()（无界线程池，可以进行自动线程回收）、Executors.newFixedThreadPool(int)（固定大小线程池）和
-		 * Executors.newSingleThreadExecutor()（单个后台线程），它们均为大多数使用场景预定义了设置。”
-		 */
+		 * Executors.newCachedThreadPool()（无界线程池，可以进行自动线程回收,可缓存的线程池，当提交一个任务就创建一个线程，
+		 如果当前的线程超过了处理请求时，那么将回收空闲的线程，如果需求增加，将创建新的线程处理任务）、
+		 Executors.newFixedThreadPool(int)（固定大小线程池，每次提交一个线程就创建一个线程，直到达到线程池的最大数量，这时的线程
+		 规模就不会再变化，如果某个线程出现异常，就会补充创建一个线程）和
+		 * Executors.newSingleThreadExecutor()（单个后台线程），它们均为大多数使用场景预定义了设置。如果出现异常就会创建一个线
+		 程代替他”
+		   Executors.newScheduledThreadPool 创建一个固定大小的线程池，而且以延时和定时来执行任务   */
 
 		MyExecutor executor = new MyExecutor(1, 2, 1, TimeUnit.DAYS,
 				new ArrayBlockingQueue<Runnable>(5));
